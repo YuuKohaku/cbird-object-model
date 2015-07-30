@@ -1,0 +1,42 @@
+{
+    "name": "cbird-object-model",
+    "version": "1.0.0",
+    "description": "Object model for Couchbird.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/YuuKohaku/cbird-object-model.git"
+    },
+    "keywords": [
+    "couchbase",
+    "bluebird",
+    "couchbird",
+    "object",
+    "model"
+  ],
+    "author": "V.",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/YuuKohaku/cbird-object-model/issues"
+    },
+    "homepage": "https://github.com/YuuKohaku/cbird-object-model",
+    "dependencies": {
+        "bluebird": "^2.9.24",
+        "lodash": "^3.7.0",
+        "make-error": "^1.0.2"
+    },
+    "devDependencies": {
+        "gulp": "^3.8.11",
+        "gulp-babel": "^5.1.0",
+        "gulp-changed": "^1.2.1",
+        "gulp-concat": "^2.5.2",
+        "gulp-develop-server": "^0.4.3",
+        "gulp-livereload": "^3.8.0",
+        "gulp-sourcemaps": "^1.5.2",
+        "gulp-watch": "^4.2.4",
+        "harmonize": "^1.4.2"
+    }
+}
