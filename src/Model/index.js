@@ -1,11 +1,13 @@
+var _ = require("lodash");
+
 module.exports = function (db) {
     var modules = {
         Object: require("./Object"),
         Map: require("./Map"),
         Collection: require("./Collection")
     };
-    for (var i in modules) {
-        modules[i] = modules[i](db);
-    }
+    _.map(_.filter(modules, "Abstract"), (el) => {
+        el.Abstract.set_database(db);
+    })
     return modules;
 }

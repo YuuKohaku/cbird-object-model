@@ -3,25 +3,25 @@
 var AbstractSelector = require("./Abstract");
 
 class DefaultSelector extends AbstractSelector {
-    constructor(params) {
-        super(params);
-        if (this.db) {
-            [this.type, this.id] = this.decompose(this.db);
-        } else if (!this.type || !this.id) {
-            throw new Error("Specify either db_id or type and id of object");
-        }
-        this.compose();
+    constructor() {
+        super();
     }
 
-    compose() {
-        this.selector = this.selector || [this.type, this.id].join("/");
-        return this.selector;
+    static compose({
+        type: type,
+        id: id
+    }) {
+        var sel = [type, id].join("/");
+        return sel;
     }
 
     //returns [type, id]
-    decompose(selector) {
-        var sel = selector || this.selector;
-        return sel ? sel.split("/") : [this.type, this.id];
+    static decompose(selector) {
+        var parts = selector.split("/");
+        return {
+            type: parts[0],
+            id: parts[1]
+        };
     }
 }
 

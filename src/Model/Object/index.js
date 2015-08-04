@@ -1,8 +1,5 @@
-module.exports = function (db) {
-    var modules = {
-        Abstract: require("./Abstract"),
-        Schedule: require("./Schedule")
-    };
-    modules.Abstract.set_database(db);
-    return modules;
-}
+module.exports = {
+    Abstract: require("./Abstract"),
+    Selector: require("./Selector"),
+    Schedule: require("./Schedule")
+};

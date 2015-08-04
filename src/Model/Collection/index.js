@@ -1,8 +1,6 @@
-module.exports = function (db) {
-    var modules = {
-        Abstract: require("./Abstract"),
-        Simple: require("./Simple")
-    };
-    modules.Abstract.set_database(db);
-    return modules;
-}
+module.exports = {
+    Abstract: require("./Abstract"),
+    Simple: require("./Simple"),
+    View: require("./View"),
+    Typed: require("./Typed")
+};

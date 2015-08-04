@@ -6,18 +6,16 @@ var Abstract = require("./Abstract");
 
 class Schedule extends Abstract {
 
-    constructor(db_id, selector, def_params) {
-        super(db_id, selector);
-        //params as scheme default vals
+    constructor(selector_data, selector, def_params = {}) {
+        console.log("Creating schedule:", selector_data, selector);
+        super(selector_data, selector);
+        //params as scheme default vals; db_value takes 
         var params = def_params || {};
-        this.scheme = {
-            name: null,
-            period: 1, //in days
-            content: [] //schedules by day
+        this.db_value = {
+            name: def_params.name || null,
+            period: def_params.period || 7, //in days
+            content: def_params.content || [[], [], [], [], [], [], []] //schedules by day
         };
-        _.merge(this, this.scheme, def_params);
-        //still unknown
-        this.db_value = false;
 
         return this;
     }
