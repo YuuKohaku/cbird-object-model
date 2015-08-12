@@ -1,11 +1,11 @@
 'use strict'
 
-var _ = require("lodash");
-var Promise = require("bluebird");
-var Couchbird = require("Couchbird")();
-var Simple = require("./Simple");
+let _ = require("lodash");
+let Promise = require("bluebird");
+let Couchbird = require("Couchbird")();
+let Basic = require("./Basic");
 
-class ViewCollection extends Simple {
+class ViewCollection extends Basic {
     constructor(params) {
         super(params);
         this.view = {
@@ -35,8 +35,8 @@ class ViewCollection extends Simple {
 
     //when loading, search for type in Model.Object; if not found, create default object (Abstract)
     //so strange
-    load_from_db() {
-        var vq = Couchbird.ViewQuery.from(this.view.from.ddoc, this.view.from.name)
+    loadFromDatabase() {
+        let vq = Couchbird.ViewQuery.from(this.view.from.ddoc, this.view.from.name)
             .range(this.view.range.start, this.view.range.end, this.view.range.inclusive_end);
         if (this.view.id_range.start || this.view.id_range.end)
             vq.id_range(this.view.id_range.start, this.view.id_range.end);
@@ -57,11 +57,10 @@ class ViewCollection extends Simple {
 
         return this.db.view(vq)
             .then((res) => {
-                var data = res;
-                console.log("Got rows", data);
+                let data = res;
                 this.keys = _.pluck(data, 'id');
-                console.log("Got keys", this.keys);
-                return super.load_from_db();
+                //                console.log("Got keys", this.keys);
+                return super.loadFromDatabase();
             });
     }
 }

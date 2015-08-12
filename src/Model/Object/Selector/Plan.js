@@ -1,6 +1,6 @@
 'use strict'
 //just a sample
-var AbstractSelector = require("./Abstract");
+let AbstractSelector = require("./Abstract");
 
 class PlanSelector extends AbstractSelector {
     constructor() {
@@ -12,12 +12,12 @@ class PlanSelector extends AbstractSelector {
         id: id,
         subname: subname
     }) {
-        var sel = [(type + "-" + subname), id].join("/");
+        let sel = [(type + "-" + subname), id].join("/");
         return sel;
     }
 
     static decompose(selector) {
-        var parts = (new RegExp(/(.+)-(.+)\/(\d+)/gi)).exec(selector);
+        let parts = (new RegExp(/(.+)-(.+)\/(\d+)/gi)).exec(selector);
         return {
             type: parts[1],
             id: parts[3],

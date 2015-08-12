@@ -1,6 +1,6 @@
 'use strict'
 
-var AbstractSelector = require("./Abstract");
+let AbstractSelector = require("./Abstract");
 
 class DefaultSelector extends AbstractSelector {
     constructor() {
@@ -11,13 +11,13 @@ class DefaultSelector extends AbstractSelector {
         type: type,
         id: id
     }) {
-        var sel = [type, id].join("/");
+        let sel = [type, id].join("/");
         return sel;
     }
 
     //returns [type, id]
     static decompose(selector) {
-        var parts = selector.split("/");
+        let parts = selector.split("/");
         return {
             type: parts[0],
             id: parts[1]

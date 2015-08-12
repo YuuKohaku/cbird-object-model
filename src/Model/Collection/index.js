@@ -1,6 +1,6 @@
 module.exports = {
     Abstract: require("./Abstract"),
-    Simple: require("./Simple"),
+    Basic: require("./Basic"),
     View: require("./View"),
     Typed: require("./Typed")
 };

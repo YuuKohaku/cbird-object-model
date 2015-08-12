@@ -1,6 +1,6 @@
 'use strict'
 
-var AbstractSelector = require("./Abstract");
+let AbstractSelector = require("./Abstract");
 
 class LinkSelector extends AbstractSelector {
     constructor() {
@@ -12,12 +12,12 @@ class LinkSelector extends AbstractSelector {
         id: id,
         subname: subname
     }) {
-        var sel = [(type + "-" + subname), id].join("/");
+        let sel = [(type + "-" + subname), id].join("/");
         return sel;
     }
 
     static decompose(selector) {
-        var parts = (new RegExp(/(\w+)\/(\w+\/\d+)\/(\w+\/\d+)/gi)).exec(selector);
+        let parts = (new RegExp(/(\w+)\/(\w+\/\d+)\/(\w+\/\d+)/gi)).exec(selector);
         return {
             type: parts[1],
             bound_src: parts[2],

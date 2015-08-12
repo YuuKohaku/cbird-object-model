@@ -1,13 +1,12 @@
-var _ = require("lodash");
+let Model = require("./Model");
 
 module.exports = function (db) {
-    var modules = {
+    let modules = {
         Object: require("./Object"),
-        Map: require("./Map"),
         Collection: require("./Collection")
     };
-    _.map(_.filter(modules, "Abstract"), (el) => {
-        el.Abstract.set_database(db);
-    })
-    return modules;
+    var model = new Model();
+    model.init(modules);
+    model.setDatabase(db);
+    return model;
 }

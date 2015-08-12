@@ -1,14 +1,14 @@
 'use strict'
 
-var _ = require("lodash");
-var Promise = require("bluebird");
-var View = require("./View");
+let _ = require("lodash");
+let Promise = require("bluebird");
+let View = require("./View");
 
 class TypedCollection extends View {
     constructor(params) {
         if (!params.type)
             throw new Error("Specify type of collection in params.");
-        var view = {
+        let view = {
             from: {
                 ddoc: 'object',
                 name: 'type'
