@@ -4,7 +4,7 @@ let Couchbird = require("Couchbird")({
     server_ip: "127.0.0.1",
     n1ql: "127.0.0.1:8093"
 }).bucket("mt");
-let Model = require("./Model")(Couchbird);
+let Model = require("./Model/index-")(Couchbird);
 
 //let sch = new Model.Object.Schedule("schedule/1");
 //let sch = new Model.Object.Schedule(1);
